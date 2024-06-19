@@ -25,4 +25,11 @@ export class UserController {
     if (!isVerified) return { message: 'User is not verified' };
     return { message: 'User is verified' };
   }
+
+
+  //for seeing all users in database - geçici olarak eklendi
+  @Get()
+  async getAllUsers(): Promise<User[]> {
+    return this.userService.findAll();
+  }
 }

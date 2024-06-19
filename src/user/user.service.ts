@@ -32,4 +32,8 @@ export class UserService {
     if (!user) return false;
     return user.isVerified;
   }
+  //for seeing all users in database - geçici olarak eklendi
+  async findAll(): Promise<User[]> {
+    return this.userModel.findAll();
+  }
 }
