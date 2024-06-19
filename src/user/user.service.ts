@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.entity';
 import { MailService } from '../mail/mail.service';
 import { randomBytes } from 'crypto';
+import { ConflictException } from '@nestjs/common';
 
 @Injectable()
 export class UserService {
@@ -12,6 +13,13 @@ export class UserService {
   ) {}
 
   async register(username: string, email: string): Promise<User> {
+
+        // Check if the username already exists
+        const existingUser = await this.userModel.findOne({ where: { username } });
+        if (existingUser) {
+          // Throw an exception if the username is taken
+          throw new ConflictException('Username is already taken');
+        }
     const verificationToken = randomBytes(32).toString('hex');
     const user = await this.userModel.create({ username, email, verificationToken, isVerified: false });
     await this.mailService.sendVerificationEmail(user.email, user.username, user.verificationToken);
