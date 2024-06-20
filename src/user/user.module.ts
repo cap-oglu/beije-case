@@ -7,6 +7,7 @@ import { MailModule } from '../mail/mail.module';
 
 @Module({
   imports: [SequelizeModule.forFeature([User]), MailModule],
+  exports: [UserService],
   controllers: [UserController],
   providers: [UserService],
 })
