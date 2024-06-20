@@ -1,36 +1,27 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+##  Clone the repository
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+  ```bash
+  git clone git@github.com:cap-oglu/beije-case.git
+  cd beije-case
+  ```
 
 ## Installation
 
 ```bash
 $ npm install
 ```
+
+## Set up environment variables:
+  Create a `.env` file in the root directory and add the necessary environment variables:
+  ```plaintext
+  EMAIL_USER=your_email@example.com
+  EMAIL_PASS=your_email_password_or_app_password
+  ```
+  **For testing purposes, an example email of mine can be used that i opened for case:**
+  ```plaintext
+  EMAIL_USER=testforcase00@gmail.com
+  EMAIL_PASS=hyhtrkeabwqamqyk
+  ```
 
 ## Running the app
 
@@ -58,16 +49,20 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Modules, Controllers, and Services
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### User Module
 
-## Stay in touch
+- **user.module.ts**: The main module for user management. Imports the User model and provides the User service and controller.
+- **user.controller.ts**: Handles incoming HTTP requests related to user actions such as registration and verification.
+- **user.service.ts**: Contains the business logic for user-related operations including registration and email verification.
+- **user.model.ts**: Defines the User model and its schema using Sequelize.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Mail Module
 
-## License
+- **mail.module.ts**: The module responsible for email functionalities. Provides the Mail service.
+- **mail.service.ts**: Uses Nodemailer to send verification emails to users.
 
-Nest is [MIT licensed](LICENSE).
+**Note**: Parts of this project were developed using [ChatGPT](https://openai.com/chatgpt) and [GitHub Copilot](https://github.com/features/copilot) for generating code snippets and project structure recommendations.
+
+To see some of the message history of ChatGPT, you can visit [this link](https://chatgpt.com/share/6ac67e12-85ad-4075-b088-b59bee9a307f).
